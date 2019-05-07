@@ -1,0 +1,11 @@
+-- Check for working CXX compiler: /home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++
+-- Check for working CXX compiler: /home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- ANDROID_ABI=arm64-v8a
+-- Found OpenCV: /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk (found version "4.0.1") found components:  opencv_java 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-2-mixedprocessing/.externalNativeBuild/cmake/debug/arm64-v8a

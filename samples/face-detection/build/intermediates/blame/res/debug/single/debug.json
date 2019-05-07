@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/build/intermediates/res/merged/debug/drawable_icon.png.flat",
+        "source": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/res/drawable/icon.png"
+    },
+    {
+        "merged": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/build/intermediates/res/merged/debug/layout_face_detect_surface_view.xml.flat",
+        "source": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/res/layout/face_detect_surface_view.xml"
+    },
+    {
+        "merged": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/build/intermediates/res/merged/debug/raw_lbpcascade_frontalface.xml.flat",
+        "source": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/res/raw/lbpcascade_frontalface.xml"
+    }
+]

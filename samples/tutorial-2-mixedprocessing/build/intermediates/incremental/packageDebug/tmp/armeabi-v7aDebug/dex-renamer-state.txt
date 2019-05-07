@@ -1,0 +1,7 @@
+#Tue May 07 11:22:21 CST 2019
+base.0=/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-2-mixedprocessing/build/intermediates/dex/debug/mergeProjectDexDebug/out
+path.1=classes_0.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-2-mixedprocessing/build/intermediates/dex/debug/mergeLibDexDebug/out

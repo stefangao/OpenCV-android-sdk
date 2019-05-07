@@ -1,0 +1,3 @@
+# ninja log v5
+0	842	0	CMakeFiles/mixed_sample.dir/jni_part.cpp.o	4bf9092d849d989
+843	874	0	/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-2-mixedprocessing/build/intermediates/cmake/debug/obj/arm64-v8a/libmixed_sample.so	201fbc80e11a6455

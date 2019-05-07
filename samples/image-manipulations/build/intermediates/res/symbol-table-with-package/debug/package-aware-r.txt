@@ -1,0 +1,11 @@
+org.opencv.samples.imagemanipulations
+attr camera_id
+attr show_fps
+drawable icon
+id any
+id back
+id front
+id image_manipulations_activity_surface_view
+layout image_manipulations_surface_view
+string app_name
+styleable CameraBridgeViewBase camera_id show_fps

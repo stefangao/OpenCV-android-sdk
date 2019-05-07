@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/camera-calibration/build/intermediates/res/merged/debug/drawable_icon.png.flat",
+        "source": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/camera-calibration/res/drawable/icon.png"
+    },
+    {
+        "merged": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/camera-calibration/build/intermediates/res/merged/debug/layout_camera_calibration_surface_view.xml.flat",
+        "source": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/camera-calibration/res/layout/camera_calibration_surface_view.xml"
+    },
+    {
+        "merged": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/camera-calibration/build/intermediates/res/merged/debug/menu_calibration.xml.flat",
+        "source": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/camera-calibration/res/menu/calibration.xml"
+    }
+]

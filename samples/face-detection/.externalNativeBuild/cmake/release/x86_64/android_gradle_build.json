@@ -1,0 +1,265 @@
+
+{
+	"buildFiles" : 
+	[
+		"/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/jni/CMakeLists.txt"
+	],
+	"cleanCommands" : 
+	[
+		"/home/CORPUSERS/28848747/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/.externalNativeBuild/cmake/release/x86_64 --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"IlmImf-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "IlmImf",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/x86_64/libIlmImf.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"detection_based_tracker-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "detection_based_tracker",
+			"buildCommand" : "/home/CORPUSERS/28848747/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/.externalNativeBuild/cmake/release/x86_64 --target detection_based_tracker",
+			"buildType" : "release",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=x86_64-none-linux-android28 --gcc-toolchain=/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot  -Ddetection_based_tracker_EXPORTS -I/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/jni -isystem /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++  -O2 -DNDEBUG  -fPIC   -std=gnu++11  -c ",
+					"src" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/jni/DetectionBasedTracker_jni.cpp",
+					"workingDirectory" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/.externalNativeBuild/cmake/release/x86_64"
+				}
+			],
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/build/intermediates/cmake/release/obj/x86_64/libdetection_based_tracker.so",
+			"toolchain" : "7506929904230328790"
+		},
+		"ippicv-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "ippicv",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/x86_64/libippicv.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"ippiw-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "ippiw",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/x86_64/libippiw.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"ittnotify-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "ittnotify",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/x86_64/libittnotify.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"libcpufeatures-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "libcpufeatures",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/x86_64/libcpufeatures.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"libjasper-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "libjasper",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/x86_64/liblibjasper.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"libjpeg-turbo-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "libjpeg-turbo",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/x86_64/liblibjpeg-turbo.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"libpng-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "libpng",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/x86_64/liblibpng.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"libprotobuf-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "libprotobuf",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/x86_64/liblibprotobuf.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"libtiff-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "libtiff",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/x86_64/liblibtiff.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"libwebp-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "libwebp",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/x86_64/liblibwebp.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_calib3d-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "opencv_calib3d",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/x86_64/libopencv_calib3d.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_core-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "opencv_core",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/x86_64/libopencv_core.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_dnn-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "opencv_dnn",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/x86_64/libopencv_dnn.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_features2d-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "opencv_features2d",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/x86_64/libopencv_features2d.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_flann-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "opencv_flann",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/x86_64/libopencv_flann.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_highgui-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "opencv_highgui",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/x86_64/libopencv_highgui.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_imgcodecs-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "opencv_imgcodecs",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/x86_64/libopencv_imgcodecs.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_imgproc-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "opencv_imgproc",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/x86_64/libopencv_imgproc.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_java-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "opencv_java",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/libs/x86_64/libopencv_java4.so",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_ml-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "opencv_ml",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/x86_64/libopencv_ml.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_objdetect-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "opencv_objdetect",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/x86_64/libopencv_objdetect.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_photo-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "opencv_photo",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/x86_64/libopencv_photo.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_stitching-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "opencv_stitching",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/x86_64/libopencv_stitching.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_video-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "opencv_video",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/x86_64/libopencv_video.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_videoio-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "opencv_videoio",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/x86_64/libopencv_videoio.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"quirc-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "quirc",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/x86_64/libquirc.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"tbb-Release-x86_64" : 
+		{
+			"abi" : "x86_64",
+			"artifactName" : "tbb",
+			"buildType" : "release",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/x86_64/libtbb.a",
+			"toolchain" : "7506929904230328790"
+		}
+	},
+	"toolchains" : 
+	{
+		"7506929904230328790" : 
+		{
+			"cCompilerExecutable" : "/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang",
+			"cppCompilerExecutable" : "/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++"
+		}
+	}
+}

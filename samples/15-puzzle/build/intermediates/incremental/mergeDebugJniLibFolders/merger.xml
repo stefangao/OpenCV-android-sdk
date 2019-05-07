@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/src/main/jniLibs"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/src/debug/jniLibs"/></dataSet></merger>

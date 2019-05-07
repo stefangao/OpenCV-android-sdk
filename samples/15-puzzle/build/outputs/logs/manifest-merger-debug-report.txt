@@ -1,0 +1,96 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:2:1-32:12
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:2:1-32:12
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:2:1-32:12
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:2:1-32:12
+MERGED from [:opencv] /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:2:1-32:12
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:2:1-32:12
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:2:1-32:12
+	package
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:3:5-42
+		INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml
+		INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:2:1-32:12
+		INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:2:1-32:12
+		INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:2:11-69
+application
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:6:5-23:19
+	android:label
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:8:9-41
+	android:icon
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:7:9-38
+	android:theme
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:9:9-67
+activity#org.opencv.samples.puzzle15.Puzzle15Activity
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:11:9-22:20
+	android:screenOrientation
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:14:13-50
+	android:label
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:13:13-45
+	android:configChanges
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:15:13-63
+	android:name
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:12:13-45
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:17:13-21:29
+action#android.intent.action.MAIN
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:18:17-69
+	android:name
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:18:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:20:17-77
+	android:name
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:20:27-74
+uses-permission#android.permission.CAMERA
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:25:5-64
+	android:name
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:25:22-62
+uses-feature#android.hardware.camera
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:27:5-84
+	android:required
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:27:58-82
+	android:name
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:27:19-57
+uses-feature#android.hardware.camera.autofocus
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:28:5-94
+	android:required
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:28:68-92
+	android:name
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:28:19-67
+uses-feature#android.hardware.camera.front
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:29:5-90
+	android:required
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:29:64-88
+	android:name
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:29:19-63
+uses-feature#android.hardware.camera.front.autofocus
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:30:5-100
+	android:required
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:30:74-98
+	android:name
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml:30:19-73
+uses-sdk
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml
+MERGED from [:opencv] /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:opencv] /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml
+		INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml
+		INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/AndroidManifest.xml

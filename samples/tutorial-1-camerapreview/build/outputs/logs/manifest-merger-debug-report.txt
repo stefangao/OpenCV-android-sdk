@@ -1,0 +1,108 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:2:1-35:12
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:2:1-35:12
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:2:1-35:12
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:2:1-35:12
+MERGED from [:opencv] /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:2:1-35:12
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:2:1-35:12
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:2:1-35:12
+	package
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:3:11-49
+		INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml
+		INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:2:1-35:12
+		INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:2:1-35:12
+		INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:2:11-69
+application
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:6:5-20:19
+	android:label
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:7:9-41
+	android:icon
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:8:9-38
+	android:theme
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:9:9-67
+activity#org.opencv.samples.tutorial1.Tutorial1Activity
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:11:9-19:20
+	android:screenOrientation
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:13:19-56
+	android:label
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:12:19-51
+	android:configChanges
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:14:19-69
+	android:name
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:11:19-51
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:15:13-18:29
+action#android.intent.action.MAIN
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:16:17-69
+	android:name
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:16:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:17:17-77
+	android:name
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:17:27-74
+supports-screens
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:22:5-26:51
+	android:largeScreens
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:25:23-50
+	android:smallScreens
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:23:23-50
+	android:normalScreens
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:24:23-51
+	android:resizeable
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:22:23-48
+	android:anyDensity
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:26:23-48
+uses-permission#android.permission.CAMERA
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:28:5-64
+	android:name
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:28:22-62
+uses-feature#android.hardware.camera
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:30:5-84
+	android:required
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:30:58-82
+	android:name
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:30:19-57
+uses-feature#android.hardware.camera.autofocus
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:31:5-94
+	android:required
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:31:68-92
+	android:name
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:31:19-67
+uses-feature#android.hardware.camera.front
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:32:5-90
+	android:required
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:32:64-88
+	android:name
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:32:19-63
+uses-feature#android.hardware.camera.front.autofocus
+ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:33:5-100
+	android:required
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:33:74-98
+	android:name
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml:33:19-73
+uses-sdk
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml
+MERGED from [:opencv] /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:opencv] /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml
+INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml
+		INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml
+		ADDED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml
+		INJECTED from /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/AndroidManifest.xml

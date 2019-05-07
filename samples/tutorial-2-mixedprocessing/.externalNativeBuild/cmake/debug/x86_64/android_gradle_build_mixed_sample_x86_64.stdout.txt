@@ -1,0 +1,2 @@
+[1/2] Building CXX object CMakeFiles/mixed_sample.dir/jni_part.cpp.o
+[2/2] Linking CXX shared library /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-2-mixedprocessing/build/intermediates/cmake/debug/obj/x86_64/libmixed_sample.so

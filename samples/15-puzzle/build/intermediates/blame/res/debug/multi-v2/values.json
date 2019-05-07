@@ -1,0 +1,45 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "map": [
+                {
+                    "source": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/build/intermediates/packaged_res/debug/values/values.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "9",
+                        "endColumns": "24",
+                        "endOffsets": "361"
+                    },
+                    "to": {
+                        "startLines": "5",
+                        "startColumns": "4",
+                        "startOffsets": "245",
+                        "endLines": "12",
+                        "endColumns": "24",
+                        "endOffsets": "551"
+                    }
+                },
+                {
+                    "source": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/15-puzzle/res/values/strings.xml",
+                    "from": {
+                        "startLines": "1,3,2",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "16,143,67",
+                        "endColumns": "50,62,75",
+                        "endOffsets": "62,201,138"
+                    },
+                    "to": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,106,169",
+                        "endColumns": "50,62,75",
+                        "endOffsets": "101,164,240"
+                    }
+                }
+            ]
+        }
+    ]
+}

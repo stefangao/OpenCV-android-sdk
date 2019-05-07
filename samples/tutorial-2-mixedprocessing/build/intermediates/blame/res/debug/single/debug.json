@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-2-mixedprocessing/build/intermediates/res/merged/debug/layout_tutorial2_surface_view.xml.flat",
+        "source": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-2-mixedprocessing/res/layout/tutorial2_surface_view.xml"
+    },
+    {
+        "merged": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-2-mixedprocessing/build/intermediates/res/merged/debug/drawable_icon.png.flat",
+        "source": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-2-mixedprocessing/res/drawable/icon.png"
+    }
+]

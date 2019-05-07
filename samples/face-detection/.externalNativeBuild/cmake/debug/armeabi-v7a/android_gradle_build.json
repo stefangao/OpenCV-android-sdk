@@ -1,0 +1,249 @@
+
+{
+	"buildFiles" : 
+	[
+		"/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/jni/CMakeLists.txt"
+	],
+	"cleanCommands" : 
+	[
+		"/home/CORPUSERS/28848747/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/.externalNativeBuild/cmake/debug/armeabi-v7a --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"IlmImf-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "IlmImf",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/armeabi-v7a/libIlmImf.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"detection_based_tracker-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "detection_based_tracker",
+			"buildCommand" : "/home/CORPUSERS/28848747/Android/Sdk/cmake/3.6.4111459/bin/cmake --build /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/.externalNativeBuild/cmake/debug/armeabi-v7a --target detection_based_tracker",
+			"buildType" : "debug",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=armv7-none-linux-androideabi28 --gcc-toolchain=/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot  -Ddetection_based_tracker_EXPORTS -I/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/jni -isystem /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/jni/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mfpu=vfpv3-d16 -fno-addrsig -march=armv7-a -mthumb -mfpu=neon -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++  -O0 -fno-limit-debug-info  -fPIC   -std=gnu++11  -c ",
+					"src" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/jni/DetectionBasedTracker_jni.cpp",
+					"workingDirectory" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/.externalNativeBuild/cmake/debug/armeabi-v7a"
+				}
+			],
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/build/intermediates/cmake/debug/obj/armeabi-v7a/libdetection_based_tracker.so",
+			"toolchain" : "7506929904230328790"
+		},
+		"libcpufeatures-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "libcpufeatures",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/armeabi-v7a/libcpufeatures.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"libjasper-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "libjasper",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/armeabi-v7a/liblibjasper.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"libjpeg-turbo-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "libjpeg-turbo",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/armeabi-v7a/liblibjpeg-turbo.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"libpng-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "libpng",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/armeabi-v7a/liblibpng.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"libprotobuf-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "libprotobuf",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/armeabi-v7a/liblibprotobuf.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"libtiff-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "libtiff",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/armeabi-v7a/liblibtiff.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"libwebp-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "libwebp",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/armeabi-v7a/liblibwebp.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_calib3d-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "opencv_calib3d",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/armeabi-v7a/libopencv_calib3d.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_core-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "opencv_core",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/armeabi-v7a/libopencv_core.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_dnn-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "opencv_dnn",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/armeabi-v7a/libopencv_dnn.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_features2d-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "opencv_features2d",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/armeabi-v7a/libopencv_features2d.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_flann-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "opencv_flann",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/armeabi-v7a/libopencv_flann.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_highgui-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "opencv_highgui",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/armeabi-v7a/libopencv_highgui.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_imgcodecs-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "opencv_imgcodecs",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/armeabi-v7a/libopencv_imgcodecs.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_imgproc-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "opencv_imgproc",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/armeabi-v7a/libopencv_imgproc.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_java-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "opencv_java",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/libs/armeabi-v7a/libopencv_java4.so",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_ml-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "opencv_ml",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/armeabi-v7a/libopencv_ml.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_objdetect-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "opencv_objdetect",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/armeabi-v7a/libopencv_objdetect.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_photo-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "opencv_photo",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/armeabi-v7a/libopencv_photo.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_stitching-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "opencv_stitching",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/armeabi-v7a/libopencv_stitching.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_video-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "opencv_video",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/armeabi-v7a/libopencv_video.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"opencv_videoio-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "opencv_videoio",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/staticlibs/armeabi-v7a/libopencv_videoio.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"quirc-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "quirc",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/armeabi-v7a/libquirc.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"tbb-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "tbb",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/armeabi-v7a/libtbb.a",
+			"toolchain" : "7506929904230328790"
+		},
+		"tegra_hal-Debug-armeabi-v7a" : 
+		{
+			"abi" : "armeabi-v7a",
+			"artifactName" : "tegra_hal",
+			"buildType" : "debug",
+			"output" : "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/3rdparty/libs/armeabi-v7a/libtegra_hal.a",
+			"toolchain" : "7506929904230328790"
+		}
+	},
+	"toolchains" : 
+	{
+		"7506929904230328790" : 
+		{
+			"cCompilerExecutable" : "/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang",
+			"cppCompilerExecutable" : "/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++"
+		}
+	}
+}

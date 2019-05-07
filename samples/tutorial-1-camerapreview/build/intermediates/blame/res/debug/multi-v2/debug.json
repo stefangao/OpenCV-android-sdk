@@ -1,0 +1,38 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/build/intermediates/res/merged/debug/values_values.arsc.flat",
+            "map": [
+                {
+                    "source": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/build/intermediates/packaged_res/debug/values/values.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "9",
+                        "endColumns": "24",
+                        "endOffsets": "361"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "107",
+                        "endLines": "10",
+                        "endColumns": "24",
+                        "endOffsets": "413"
+                    }
+                },
+                {
+                    "source": "/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/tutorial-1-camerapreview/res/values/strings.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "51",
+                        "endOffsets": "102"
+                    }
+                }
+            ]
+        }
+    ]
+}
