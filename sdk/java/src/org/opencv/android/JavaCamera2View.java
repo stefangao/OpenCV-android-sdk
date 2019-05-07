@@ -298,6 +298,7 @@ public class JavaCamera2View extends CameraBridgeViewBase {
         initializeCamera();
         try {
             boolean needReconfig = calcPreviewSize(width, height);
+            mPreviewSize = new android.util.Size(1920, 1080);
             mFrameWidth = mPreviewSize.getWidth();
             mFrameHeight = mPreviewSize.getHeight();
 
@@ -336,7 +337,7 @@ public class JavaCamera2View extends CameraBridgeViewBase {
                 Imgproc.cvtColor(mYuvFrameData, mRgba, Imgproc.COLOR_YUV2RGB_I420, 4); // COLOR_YUV2RGBA_YV12 produces inverted colors
             else if (mPreviewFormat == ImageFormat.YUV_420_888) {
                 assert (mUVFrameData != null);
-                Imgproc.cvtColorTwoPlane(mYuvFrameData, mUVFrameData, mRgba, Imgproc.COLOR_YUV2RGBA_NV12);
+                Imgproc.cvtColorTwoPlane(mYuvFrameData, mUVFrameData, mRgba, Imgproc.COLOR_YUV2RGBA_NV12); //NOTE: it is COLOR_YUV2RGBA_NV21 originally
             } else
                 throw new IllegalArgumentException("Preview Format can be NV21 or YV12");
 
