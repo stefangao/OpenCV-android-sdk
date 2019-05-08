@@ -7,6 +7,10 @@
 
 #include <android/log.h>
 
+//gwas
+#include <opencv2/imgcodecs.hpp>
+#include <opencv2/features2d.hpp>
+
 #define LOG_TAG "FaceDetection/DetectionBasedTracker"
 #define LOGD(...) ((void)__android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__))
 
@@ -40,6 +44,28 @@ public:
     virtual ~CascadeDetectorAdapter()
     {
         LOGD("CascadeDetectorAdapter::Detect::~Detect");
+    }
+
+    void gwas_test1()
+    {
+// Read image
+        Mat im = imread( "blob.jpg", IMREAD_GRAYSCALE );
+
+// Set up the detector with default parameters.
+        SimpleBlobDetector detector;
+
+// Detect blobs.
+        std::vector<KeyPoint> keypoints;
+        detector.detect( im, keypoints);
+
+// Draw detected blobs as red circles.
+// DrawMatchesFlags::DRAW_RICH_KEYPOINTS flag ensures the size of the circle corresponds to the size of blob
+        Mat im_with_keypoints;
+        drawKeypoints( im, keypoints, im_with_keypoints, Scalar(0,0,255), DrawMatchesFlags::DRAW_RICH_KEYPOINTS );
+
+// Show blobs
+        //imshow("keypoints", im_with_keypoints );
+        //waitKey(0);
     }
 
 private:

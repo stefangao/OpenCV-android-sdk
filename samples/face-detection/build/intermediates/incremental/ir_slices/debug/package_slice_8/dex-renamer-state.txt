@@ -1,4 +1,0 @@
-#Tue May 07 11:23:00 CST 2019
-base.0=/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/build/intermediates/transforms/dexMerger/debug/8
-path.0=classes.dex
-renamed.0=classes.dex
