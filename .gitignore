@@ -1,6 +1,4 @@
-samples/face-detection/build/
-samples/tutorial-3-cameracontrol/build/
-samples/color-blob-detection/build/
-samples/.gradle/
-samples/.idea/
-sdk/build/
+samples/*/build/**
+samples/.gradle/**
+samples/.idea/**
+sdk/build/**
