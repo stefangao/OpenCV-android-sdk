@@ -218,8 +218,12 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Log.i(TAG, "called onOptionsItemSelected; selected item: " + item);
-        if (item == mItemFace50)
-            setMinFaceSize(0.5f);
+        if (item == mItemFace50) {
+
+            mNativeDetector.callCxx("hello", "{\"name\":\"denny\", \"age\":23}");
+
+            //setMinFaceSize(0.5f);
+        }
         else if (item == mItemFace40)
             setMinFaceSize(0.4f);
         else if (item == mItemFace30)

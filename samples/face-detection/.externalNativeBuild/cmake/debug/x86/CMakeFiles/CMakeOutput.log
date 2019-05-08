@@ -3,17 +3,17 @@ The host system is: Linux - 4.4.0-142-generic - x86_64
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/CORPUSERS/28848747/Android/Sdk/cmake/3.6.4111459/bin/ninja" "cmTC_c6616"
-[1/2] Building CXX object CMakeFiles/cmTC_c6616.dir/testCXXCompiler.cxx.o
-[2/2] Linking CXX executable cmTC_c6616
+Run Build Command:"/home/CORPUSERS/28848747/Android/Sdk/cmake/3.6.4111459/bin/ninja" "cmTC_5c784"
+[1/2] Building CXX object CMakeFiles/cmTC_5c784.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_5c784
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/CORPUSERS/28848747/Android/Sdk/cmake/3.6.4111459/bin/ninja" "cmTC_e50eb"
-[1/2] Building CXX object CMakeFiles/cmTC_e50eb.dir/CMakeCXXCompilerABI.cpp.o
-[2/2] Linking CXX executable cmTC_e50eb
+Run Build Command:"/home/CORPUSERS/28848747/Android/Sdk/cmake/3.6.4111459/bin/ninja" "cmTC_0b208"
+[1/2] Building CXX object CMakeFiles/cmTC_0b208.dir/CMakeCXXCompilerABI.cpp.o
+[2/2] Linking CXX executable cmTC_0b208
 Android (5058415 based on r339409) clang version 8.0.2 (https://android.googlesource.com/toolchain/clang 40173bab62ec746213857d083c0e8b0abb568790) (https://android.googlesource.com/toolchain/llvm 7a6618d69e7e8111e1d49dc9e7813767c5ca756a) (based on LLVM 8.0.2svn)
 Target: i686-none-linux-android28
 Thread model: posix
@@ -23,16 +23,16 @@ Found candidate GCC installation: /home/CORPUSERS/28848747/Android/Sdk/ndk-bundl
 Selected GCC installation: /home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x
 Candidate multilib: .;@m32
 Selected multilib: .;@m32
- "/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld" --sysroot=/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot -pie -z relro --enable-new-dtags --eh-frame-hdr -m elf_i386 -dynamic-linker /system/bin/linker -o cmTC_e50eb /home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/28/crtbegin_dynamic.o -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/8.0.2/lib/linux/i386 -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/28 -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib --exclude-libs libgcc.a --exclude-libs libatomic.a --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections CMakeFiles/cmTC_e50eb.dir/CMakeCXXCompilerABI.cpp.o -Bstatic -lc++ -Bdynamic -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/28/crtend_android.o
+ "/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld" --sysroot=/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot -pie -z relro --enable-new-dtags --eh-frame-hdr -m elf_i386 -dynamic-linker /system/bin/linker -o cmTC_0b208 /home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/28/crtbegin_dynamic.o -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/8.0.2/lib/linux/i386 -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/28 -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib --exclude-libs libgcc.a --exclude-libs libatomic.a --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections CMakeFiles/cmTC_0b208.dir/CMakeCXXCompilerABI.cpp.o -Bstatic -lc++ -Bdynamic -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/28/crtend_android.o
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(i686-linux-android-ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/home/CORPUSERS/28848747/Android/Sdk/cmake/3.6.4111459/bin/ninja" "cmTC_e50eb"]
-  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_e50eb.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [[2/2] Linking CXX executable cmTC_e50eb]
+  ignore line: [Run Build Command:"/home/CORPUSERS/28848747/Android/Sdk/cmake/3.6.4111459/bin/ninja" "cmTC_0b208"]
+  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_0b208.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [[2/2] Linking CXX executable cmTC_0b208]
   ignore line: [Android (5058415 based on r339409) clang version 8.0.2 (https://android.googlesource.com/toolchain/clang 40173bab62ec746213857d083c0e8b0abb568790) (https://android.googlesource.com/toolchain/llvm 7a6618d69e7e8111e1d49dc9e7813767c5ca756a) (based on LLVM 8.0.2svn)]
   ignore line: [Target: i686-none-linux-android28]
   ignore line: [Thread model: posix]
@@ -44,7 +44,7 @@ Parsed CXX implicit link information from above output:
   ignore line: [@m32]
   ignore line: [Selected multilib: .]
   ignore line: [@m32]
-  link line: [ "/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld" --sysroot=/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot -pie -z relro --enable-new-dtags --eh-frame-hdr -m elf_i386 -dynamic-linker /system/bin/linker -o cmTC_e50eb /home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/28/crtbegin_dynamic.o -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/8.0.2/lib/linux/i386 -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/28 -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib --exclude-libs libgcc.a --exclude-libs libatomic.a --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections CMakeFiles/cmTC_e50eb.dir/CMakeCXXCompilerABI.cpp.o -Bstatic -lc++ -Bdynamic -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/28/crtend_android.o]
+  link line: [ "/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld" --sysroot=/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot -pie -z relro --enable-new-dtags --eh-frame-hdr -m elf_i386 -dynamic-linker /system/bin/linker -o cmTC_0b208 /home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/28/crtbegin_dynamic.o -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/8.0.2/lib/linux/i386 -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/28 -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib -L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib --exclude-libs libgcc.a --exclude-libs libatomic.a --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections CMakeFiles/cmTC_0b208.dir/CMakeCXXCompilerABI.cpp.o -Bstatic -lc++ -Bdynamic -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl /home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/28/crtend_android.o]
     arg [/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin/ld] ==> ignore
     arg [--sysroot=/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot] ==> ignore
     arg [-pie] ==> ignore
@@ -56,7 +56,7 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/system/bin/linker] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_e50eb] ==> ignore
+    arg [cmTC_0b208] ==> ignore
     arg [/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/lib/i686-linux-android/28/crtbegin_dynamic.o] ==> ignore
     arg [-L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/8.0.2/lib/linux/i386] ==> dir [/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/8.0.2/lib/linux/i386]
     arg [-L/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x] ==> dir [/home/CORPUSERS/28848747/Android/Sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib/gcc/i686-linux-android/4.9.x]
@@ -76,7 +76,7 @@ Parsed CXX implicit link information from above output:
     arg [-zrelro] ==> ignore
     arg [-znow] ==> ignore
     arg [--gc-sections] ==> ignore
-    arg [CMakeFiles/cmTC_e50eb.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_0b208.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-Bstatic] ==> ignore
     arg [-lc++] ==> lib [c++]
     arg [-Bdynamic] ==> ignore
@@ -109,9 +109,9 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
 Change Dir: /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/CORPUSERS/28848747/Android/Sdk/cmake/3.6.4111459/bin/ninja" "cmTC_3cad7"
-[1/2] Building CXX object CMakeFiles/cmTC_3cad7.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_3cad7
+Run Build Command:"/home/CORPUSERS/28848747/Android/Sdk/cmake/3.6.4111459/bin/ninja" "cmTC_bb0c9"
+[1/2] Building CXX object CMakeFiles/cmTC_bb0c9.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_bb0c9
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -176,9 +176,9 @@ Run Build Command:"/home/CORPUSERS/28848747/Android/Sdk/cmake/3.6.4111459/bin/ni
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/CORPUSERS/28848747/Android/Sdk/cmake/3.6.4111459/bin/ninja" "cmTC_49497"
-[1/2] Building CXX object CMakeFiles/cmTC_49497.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_49497
+Run Build Command:"/home/CORPUSERS/28848747/Android/Sdk/cmake/3.6.4111459/bin/ninja" "cmTC_5731d"
+[1/2] Building CXX object CMakeFiles/cmTC_5731d.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_5731d
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -243,9 +243,9 @@ Run Build Command:"/home/CORPUSERS/28848747/Android/Sdk/cmake/3.6.4111459/bin/ni
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
 
-Run Build Command:"/home/CORPUSERS/28848747/Android/Sdk/cmake/3.6.4111459/bin/ninja" "cmTC_79e21"
-[1/2] Building CXX object CMakeFiles/cmTC_79e21.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_79e21
+Run Build Command:"/home/CORPUSERS/28848747/Android/Sdk/cmake/3.6.4111459/bin/ninja" "cmTC_d6937"
+[1/2] Building CXX object CMakeFiles/cmTC_d6937.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_d6937
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers

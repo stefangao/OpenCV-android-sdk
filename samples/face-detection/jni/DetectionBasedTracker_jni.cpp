@@ -10,6 +10,7 @@
 //gwas
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/features2d.hpp>
+#include "cobValue.h"
 
 #define LOG_TAG "FaceDetection/DetectionBasedTracker"
 #define LOGD(...) ((void)__android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__))
@@ -274,4 +275,21 @@ JNIEXPORT void JNICALL Java_org_opencv_samples_facedetect_DetectionBasedTracker_
         jenv->ThrowNew(je, "Unknown exception in JNI code DetectionBasedTracker.nativeDetect()");
     }
     LOGD("Java_org_opencv_samples_facedetect_DetectionBasedTracker_nativeDetect END");
+}
+
+JNIEXPORT int JNICALL Java_org_opencv_samples_facedetect_DetectionBasedTracker_nativeCallCxx(JNIEnv*  env, jclass thiz, jstring jstrFunc, jstring jstrParam)
+{
+    std::string funcName = env->GetStringUTFChars(jstrFunc, NULL);
+    std::string jsonParams = env->GetStringUTFChars(jstrParam, NULL);
+
+    cob::ValueMap vm;
+    vm.createWithJsonString(jsonParams);
+    auto name = vm["name"].asString();
+    int age = vm["age"].asInt();
+
+    LOGD("nativeCallCxx func: %s, param: %s", funcName.c_str(), jsonParams.c_str());
+
+    LOGD("nativeCallCxx name=%s age=%d", name.c_str(), age);
+
+    return 0;
 }

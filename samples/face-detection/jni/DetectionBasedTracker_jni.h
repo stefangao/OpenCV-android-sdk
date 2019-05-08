@@ -55,6 +55,8 @@ JNIEXPORT void JNICALL Java_org_opencv_samples_facedetect_DetectionBasedTracker_
 JNIEXPORT void JNICALL Java_org_opencv_samples_facedetect_DetectionBasedTracker_nativeDetect
   (JNIEnv *, jclass, jlong, jlong, jlong);
 
+JNIEXPORT int JNICALL Java_org_opencv_samples_facedetect_DetectionBasedTracker_nativeCallCxx(JNIEnv*  env, jclass thiz, jstring jstrFunc, jstring jstrParam);
+
 #ifdef __cplusplus
 }
 #endif

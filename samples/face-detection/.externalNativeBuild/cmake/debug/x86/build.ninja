@@ -59,6 +59,14 @@ build CMakeFiles/detection_based_tracker.dir/DetectionBasedTracker_jni.cpp.o: CX
   IN_ABS = /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/jni/DetectionBasedTracker_jni.cpp
   OBJECT_DIR = CMakeFiles/detection_based_tracker.dir
   OBJECT_FILE_DIR = CMakeFiles/detection_based_tracker.dir
+build CMakeFiles/detection_based_tracker.dir/cobValue.cpp.o: CXX_COMPILER__detection_based_tracker /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/jni/cobValue.cpp
+  DEFINES = -Ddetection_based_tracker_EXPORTS
+  DEP_FILE = CMakeFiles/detection_based_tracker.dir/cobValue.cpp.o.d
+  FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++  -O0 -fno-limit-debug-info  -fPIC   -std=gnu++11
+  INCLUDES = -I/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/jni -isystem /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/jni/include
+  IN_ABS = /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/jni/cobValue.cpp
+  OBJECT_DIR = CMakeFiles/detection_based_tracker.dir
+  OBJECT_FILE_DIR = CMakeFiles/detection_based_tracker.dir
 
 # =============================================================================
 # Link build statements for SHARED_LIBRARY target detection_based_tracker
@@ -67,7 +75,7 @@ build CMakeFiles/detection_based_tracker.dir/DetectionBasedTracker_jni.cpp.o: CX
 #############################################
 # Link the shared library /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/build/intermediates/cmake/debug/obj/x86/libdetection_based_tracker.so
 
-build /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/build/intermediates/cmake/debug/obj/x86/libdetection_based_tracker.so: CXX_SHARED_LIBRARY_LINKER__detection_based_tracker CMakeFiles/detection_based_tracker.dir/DetectionBasedTracker_jni.cpp.o | /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/libs/x86/libopencv_java4.so
+build /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/build/intermediates/cmake/debug/obj/x86/libdetection_based_tracker.so: CXX_SHARED_LIBRARY_LINKER__detection_based_tracker CMakeFiles/detection_based_tracker.dir/DetectionBasedTracker_jni.cpp.o CMakeFiles/detection_based_tracker.dir/cobValue.cpp.o | /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/libs/x86/libopencv_java4.so
   LANGUAGE_COMPILE_FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -fno-addrsig -Wa,--noexecstack -Wformat -Werror=format-security -stdlib=libc++  -O0 -fno-limit-debug-info
   LINK_FLAGS = -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id -Wl,--warn-shared-textrel -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments -Wl,-z,noexecstack -Wl,-z,relro -Wl,-z,now
   LINK_LIBRARIES = /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/sdk/native/libs/x86/libopencv_java4.so -ljnigraphics -llog -ldl -lz -latomic -lm

@@ -14,7 +14,7 @@ else
   include /home/CORPUSERS/28848747/gwas/OpenCV-android-sdk/sdk/native/jni/OpenCV.mk
 endif
 
-LOCAL_SRC_FILES  := DetectionBasedTracker_jni.cpp
+LOCAL_SRC_FILES  := DetectionBasedTracker_jni.cpp cobValue.cpp #actually decided by cmakelists.txt
 LOCAL_C_INCLUDES += $(LOCAL_PATH)
 LOCAL_LDLIBS     += -llog -ldl
 
