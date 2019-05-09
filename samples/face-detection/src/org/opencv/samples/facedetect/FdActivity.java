@@ -9,6 +9,7 @@ import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame;
 import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
+import org.opencv.android.Utils;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfRect;
@@ -21,6 +22,8 @@ import org.opencv.objdetect.CascadeClassifier;
 import org.opencv.imgproc.Imgproc;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -28,6 +31,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
+
+import android.graphics.Matrix;
+import org.json.JSONObject;
+import org.json.JSONException;
 
 public class FdActivity extends AppCompatActivity implements CvCameraViewListener2 {
 
@@ -55,6 +62,13 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
     private int                    mAbsoluteFaceSize   = 0;
 
     private CameraBridgeViewBase   mOpenCvCameraView;
+
+    //
+    private Bitmap mSrcBitmap;
+    private Bitmap mDstBitmap;
+    private Mat mSrcbMat;
+    private Mat mDstbMat;
+    private Mat mCanvasMat;
 
     private BaseLoaderCallback  mLoaderCallback = new BaseLoaderCallback(this) {
         @Override
@@ -159,18 +173,46 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
         mOpenCvCameraView.disableView();
     }
 
+    public static Bitmap imageScale(Bitmap bitmap, int dst_w, int dst_h) {
+        int src_w = bitmap.getWidth();
+        int src_h = bitmap.getHeight();
+        float scale_w = ((float) dst_w) / src_w;
+        float scale_h = ((float) dst_h) / src_h;
+        Matrix matrix = new Matrix();
+        matrix.postScale(scale_w, scale_h);
+        Bitmap dstbmp = Bitmap.createBitmap(bitmap, 0, 0, src_w, src_h, matrix, true);
+        return dstbmp;
+    }
+
     public void onCameraViewStarted(int width, int height) {
         mGray = new Mat();
         mRgba = new Mat();
+
+        mSrcbMat = new Mat();
+        mDstbMat = new Mat();
+
+        mSrcBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.cyq);
+        mSrcBitmap = imageScale(mSrcBitmap,  1920, 1080);
+
+        Utils.bitmapToMat(mSrcBitmap, mSrcbMat);
+        //Imgproc.cvtColor(mSrcbMat, mDstbMat, Imgproc.COLOR_RGB2GRAY);
     }
 
     public void onCameraViewStopped() {
         mGray.release();
         mRgba.release();
+
+        mSrcbMat.release();
+        mDstbMat.release();
     }
 
     public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
+        if (mDstbMat.empty())
+            return mSrcbMat;
+        else
+            return mDstbMat;
 
+        /*
         mRgba = inputFrame.rgba();
         mGray = inputFrame.gray();
 
@@ -201,7 +243,7 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
         for (int i = 0; i < facesArray.length; i++)
             Imgproc.rectangle(mRgba, facesArray[i].tl(), facesArray[i].br(), FACE_RECT_COLOR, 3);
 
-        return mRgba;
+        return mRgba;*/
     }
 
     @Override
@@ -221,11 +263,17 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
         if (item == mItemFace50) {
 
             mNativeDetector.callCxx("hello", "{\"name\":\"denny\", \"age\":23}");
-
-            //setMinFaceSize(0.5f);
         }
-        else if (item == mItemFace40)
-            setMinFaceSize(0.4f);
+        else if (item == mItemFace40) {
+            JSONObject jsonObject = new JSONObject();
+            try {
+                jsonObject.put("src", mSrcbMat.getNativeObjAddr());
+                jsonObject.put("dst", mDstbMat.getNativeObjAddr());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            mNativeDetector.callCxx("convertToGray", jsonObject.toString());
+        }
         else if (item == mItemFace30)
             setMinFaceSize(0.3f);
         else if (item == mItemFace20)

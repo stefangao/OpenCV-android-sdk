@@ -60,6 +60,18 @@ Value::Value(int v)
     _field.intVal = v;
 }
 
+Value::Value(long v)
+        : _type(Type::LONG)
+{
+    _field.longVal = v;
+}
+
+Value::Value(unsigned long v)
+        : _type(Type::ULONG)
+{
+    _field.ulongVal = v;
+}
+
 Value::Value(unsigned int v)
 : _type(Type::UNSIGNED)
 {
@@ -175,6 +187,12 @@ Value& Value::operator= (const Value& other)
             case Type::UNSIGNED:
                 _field.unsignedVal = other._field.unsignedVal;
                 break;
+            case Type::LONG:
+                _field.longVal = other._field.longVal;
+                break;
+            case Type::ULONG:
+                _field.ulongVal = other._field.ulongVal;
+                break;
             case Type::FLOAT:
                 _field.floatVal = other._field.floatVal;
                 break;
@@ -235,6 +253,12 @@ Value& Value::operator= (Value&& other)
             case Type::UNSIGNED:
                 _field.unsignedVal = other._field.unsignedVal;
                 break;
+            case Type::LONG:
+                _field.longVal = other._field.longVal;
+                break;
+            case Type::ULONG:
+                _field.ulongVal = other._field.ulongVal;
+                break;
             case Type::FLOAT:
                 _field.floatVal = other._field.floatVal;
                 break;
@@ -286,6 +310,20 @@ Value& Value::operator= (unsigned int v)
 {
     reset(Type::UNSIGNED);
     _field.unsignedVal = v;
+    return *this;
+}
+
+Value& Value::operator= (long v)
+{
+    reset(Type::LONG);
+    _field.longVal = v;
+    return *this;
+}
+
+Value& Value::operator= (unsigned long v)
+{
+    reset(Type::ULONG);
+    _field.ulongVal = v;
     return *this;
 }
 
@@ -390,6 +428,8 @@ bool Value::operator== (const Value& v) const
         case Type::BYTE:    return v._field.byteVal     == this->_field.byteVal;
         case Type::INTEGER: return v._field.intVal      == this->_field.intVal;
         case Type::UNSIGNED:return v._field.unsignedVal == this->_field.unsignedVal;
+        case Type::LONG: return v._field.longVal      == this->_field.longVal;
+        case Type::ULONG:return v._field.ulongVal == this->_field.ulongVal;
         case Type::BOOLEAN: return v._field.boolVal     == this->_field.boolVal;
         case Type::STRING:  return *v._field.strVal     == *this->_field.strVal;
         case Type::FLOAT:   return std::abs(v._field.floatVal  - this->_field.floatVal)  <= FLT_EPSILON;
@@ -462,6 +502,16 @@ unsigned char Value::asByte() const
         return static_cast<unsigned char>(_field.unsignedVal);
     }
 
+    if (_type == Type::LONG)
+    {
+        return static_cast<unsigned char>(_field.longVal);
+    }
+
+    if (_type == Type::ULONG)
+    {
+        return static_cast<unsigned char>(_field.ulongVal);
+    }
+
     if (_type == Type::STRING)
     {
         return static_cast<unsigned char>(atoi(_field.strVal->c_str()));
@@ -495,6 +545,16 @@ int Value::asInt() const
     if (_type == Type::UNSIGNED)
     {
         return (int)_field.unsignedVal;
+    }
+
+    if (_type == Type::LONG)
+    {
+        return static_cast<int>(_field.longVal);
+    }
+
+    if (_type == Type::ULONG)
+    {
+        return static_cast<int>(_field.ulongVal);
     }
 
     if (_type == Type::BYTE)
@@ -538,6 +598,16 @@ unsigned int Value::asUnsignedInt() const
         return static_cast<unsigned int>(_field.intVal);
     }
 
+    if (_type == Type::LONG)
+    {
+        return static_cast<unsigned int>(_field.longVal);
+    }
+
+    if (_type == Type::ULONG)
+    {
+        return static_cast<unsigned int>(_field.ulongVal);
+    }
+
     if (_type == Type::BYTE)
     {
         return static_cast<unsigned int>(_field.byteVal);
@@ -567,6 +637,106 @@ unsigned int Value::asUnsignedInt() const
     return 0u;
 }
 
+long Value::asLong() const
+{
+    if (_type == Type::INTEGER)
+    {
+        return static_cast<long>(_field.intVal);
+    }
+
+    if (_type == Type::UNSIGNED)
+    {
+        return static_cast<long>(_field.unsignedVal);
+    }
+
+    if (_type == Type::LONG)
+    {
+        return _field.longVal;
+    }
+
+    if (_type == Type::ULONG)
+    {
+        return static_cast<long>(_field.ulongVal);
+    }
+
+    if (_type == Type::BYTE)
+    {
+        return _field.byteVal;
+    }
+
+    if (_type == Type::STRING)
+    {
+        return atol(_field.strVal->c_str());
+    }
+
+    if (_type == Type::FLOAT)
+    {
+        return static_cast<long>(_field.floatVal);
+    }
+
+    if (_type == Type::DOUBLE)
+    {
+        return static_cast<long>(_field.doubleVal);
+    }
+
+    if (_type == Type::BOOLEAN)
+    {
+        return _field.boolVal ? 1 : 0;
+    }
+
+    return 0;
+}
+
+unsigned long Value::asUlong() const
+{
+    if (_type == Type::INTEGER)
+    {
+        return static_cast<unsigned long>(_field.intVal);
+    }
+
+    if (_type == Type::UNSIGNED)
+    {
+        return static_cast<unsigned long>(_field.unsignedVal);
+    }
+
+    if (_type == Type::LONG)
+    {
+        return static_cast<unsigned long>(_field.longVal);
+    }
+
+    if (_type == Type::ULONG)
+    {
+        return _field.ulongVal;
+    }
+
+    if (_type == Type::BYTE)
+    {
+        return _field.byteVal;
+    }
+
+    if (_type == Type::STRING)
+    {
+        return atol(_field.strVal->c_str());
+    }
+
+    if (_type == Type::FLOAT)
+    {
+        return static_cast<unsigned long>(_field.floatVal);
+    }
+
+    if (_type == Type::DOUBLE)
+    {
+        return static_cast<unsigned long>(_field.doubleVal);
+    }
+
+    if (_type == Type::BOOLEAN)
+    {
+        return _field.boolVal ? 1 : 0;
+    }
+
+    return 0;
+}
+
 float Value::asFloat() const
 {
     if (_type == Type::FLOAT)
@@ -592,6 +762,16 @@ float Value::asFloat() const
     if (_type == Type::UNSIGNED)
     {
         return static_cast<float>(_field.unsignedVal);
+    }
+
+    if (_type == Type::LONG)
+    {
+        return static_cast<float>(_field.longVal);
+    }
+
+    if (_type == Type::ULONG)
+    {
+        return static_cast<float>(_field.ulongVal);
     }
 
     if (_type == Type::DOUBLE)
@@ -634,6 +814,16 @@ double Value::asDouble() const
         return static_cast<double>(_field.unsignedVal);
     }
 
+    if (_type == Type::LONG)
+    {
+        return static_cast<double>(_field.longVal);
+    }
+
+    if (_type == Type::ULONG)
+    {
+        return static_cast<double>(_field.ulongVal);
+    }
+
     if (_type == Type::FLOAT)
     {
         return static_cast<double>(_field.floatVal);
@@ -674,6 +864,16 @@ bool Value::asBool() const
         return _field.unsignedVal == 0 ? false : true;
     }
 
+    if (_type == Type::LONG)
+    {
+        return _field.longVal == 0 ? false : true;
+    }
+
+    if (_type == Type::ULONG)
+    {
+        return _field.ulongVal == 0 ? false : true;
+    }
+
     if (_type == Type::FLOAT)
     {
         return _field.floatVal == 0.0f ? false : true;
@@ -706,6 +906,12 @@ std::string Value::asString() const
             break;
         case Type::UNSIGNED:
             ret << _field.unsignedVal;
+            break;
+        case Type::LONG:
+            ret << _field.longVal;
+            break;
+        case Type::ULONG:
+            ret << _field.ulongVal;
             break;
         case Type::FLOAT:
             ret << std::fixed << std::setprecision( 7 )<< _field.floatVal;
@@ -818,6 +1024,8 @@ static std::string visit(const Value& v, int depth)
         case Value::Type::BYTE:
         case Value::Type::INTEGER:
         case Value::Type::UNSIGNED:
+        case Value::Type::LONG:
+        case Value::Type::ULONG:
         case Value::Type::FLOAT:
         case Value::Type::DOUBLE:
         case Value::Type::BOOLEAN:
@@ -860,6 +1068,12 @@ void Value::clear()
             break;
         case Type::UNSIGNED:
             _field.unsignedVal = 0u;
+            break;
+        case Type::LONG:
+            _field.longVal = 0;
+            break;
+        case Type::ULONG:
+            _field.ulongVal = 0u;
             break;
         case Type::FLOAT:
             _field.floatVal = 0.0f;
@@ -951,6 +1165,10 @@ Value ValueMapUtil::parseValueFromJsonValue(const rapidjson::Value& jvalue)
             return Value(temp);
         } else if(jvalue.IsInt()) {
             return Value(jvalue.GetInt());
+        } else if(jvalue.IsInt64()) {
+            return Value((long)jvalue.GetInt64());
+        } else if(jvalue.IsUint64()) {
+            return Value((unsigned long)jvalue.GetUint64());
         }
     }
 
@@ -1117,6 +1335,18 @@ static bool parserJsonValueFromValue(const Value& value, rapidjson::Value& jvalu
         case Value::Type::UNSIGNED:
         {
             jvalue.SetUint(value.asUnsignedInt());
+        }
+            break;
+
+        case Value::Type::LONG:
+        {
+            jvalue.SetInt(value.asLong());
+        }
+            break;
+
+        case Value::Type::ULONG:
+        {
+            jvalue.SetUint(value.asUlong());
         }
             break;
 

@@ -99,6 +99,9 @@ public:
     /** Create a Value by an unsigned value. */
     explicit Value(unsigned int v);
 
+    explicit Value(long v);
+    explicit Value(unsigned long v);
+
     /** Create a Value by a float value. */
     explicit Value(float v);
 
@@ -148,6 +151,10 @@ public:
     Value& operator= (int v);
     /** Assignment operator, assign from integer to Value. */
     Value& operator= (unsigned int v);
+
+    Value& operator= (long v);
+    Value& operator= (unsigned long v);
+
     /** Assignment operator, assign from float to Value. */
     Value& operator= (float v);
     /** Assignment operator, assign from double to Value. */
@@ -189,6 +196,10 @@ public:
     int asInt() const;
     /** Gets as an unsigned value. Will convert to unsigned if possible, or will trigger assert error. */
     unsigned int asUnsignedInt() const;
+
+    long asLong() const;
+    unsigned long asUlong() const;
+
     /** Gets as a float value. Will convert to float if possible, or will trigger assert error. */
     float asFloat() const;
     /** Gets as a double value. Will convert to double if possible, or will trigger assert error. */
@@ -230,6 +241,10 @@ public:
         INTEGER,
         /// wrap unsigned
         UNSIGNED,
+        /// wrap long
+        LONG,
+        /// wrap unsigned long
+        ULONG,
         /// wrap float
         FLOAT,
         /// wrap double
@@ -261,6 +276,8 @@ private:
         unsigned char byteVal;
         int intVal;
         unsigned int unsignedVal;
+        long longVal;
+        long ulongVal;
         float floatVal;
         double doubleVal;
         bool boolVal;

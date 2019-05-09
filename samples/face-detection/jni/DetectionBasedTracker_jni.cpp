@@ -10,6 +10,7 @@
 //gwas
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/features2d.hpp>
+#include <opencv2/imgproc.hpp>
 #include "cobValue.h"
 
 #define LOG_TAG "FaceDetection/DetectionBasedTracker"
@@ -282,14 +283,28 @@ JNIEXPORT int JNICALL Java_org_opencv_samples_facedetect_DetectionBasedTracker_n
     std::string funcName = env->GetStringUTFChars(jstrFunc, NULL);
     std::string jsonParams = env->GetStringUTFChars(jstrParam, NULL);
 
+    /*
     cob::ValueMap vm;
     vm.createWithJsonString(jsonParams);
     auto name = vm["name"].asString();
-    int age = vm["age"].asInt();
+    int age = vm["age"].asInt();*/
 
     LOGD("nativeCallCxx func: %s, param: %s", funcName.c_str(), jsonParams.c_str());
 
-    LOGD("nativeCallCxx name=%s age=%d", name.c_str(), age);
+    //LOGD("nativeCallCxx name=%s age=%d", name.c_str(), age);
 
+    if (funcName == "convertToGray")
+    {
+        cob::ValueMap vm;
+        vm.createWithJsonString(jsonParams);
+        long srcAddr = vm["src"].asLong();
+        long dstAddr = vm["dst"].asLong();
+        if (srcAddr != 0 && dstAddr != 0)
+        {
+            Mat &srcMat = *((Mat *) srcAddr);
+            Mat &dstMat = *((Mat *) dstAddr);
+            cvtColor(srcMat, dstMat, COLOR_RGB2GRAY);
+        }
+    }
     return 0;
 }
