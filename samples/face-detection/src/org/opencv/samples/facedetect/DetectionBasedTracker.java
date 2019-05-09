@@ -30,8 +30,8 @@ public class DetectionBasedTracker
         mNativeObj = 0;
     }
 
-    public void callCxx(String funcName, String jsonParams) {
-        nativeCallCxx(funcName, jsonParams);
+    public long callCxx(String funcName, String jsonParams) {
+        return nativeCallCxx(funcName, jsonParams);
     }
 
     private long mNativeObj = 0;
@@ -42,5 +42,5 @@ public class DetectionBasedTracker
     private static native void nativeStop(long thiz);
     private static native void nativeSetFaceSize(long thiz, int size);
     private static native void nativeDetect(long thiz, long inputImage, long faces);
-    private static native void nativeCallCxx(String funcName, String jsonParams);
+    private static native long nativeCallCxx(String funcName, String jsonParams);
 }

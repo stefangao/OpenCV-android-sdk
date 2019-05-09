@@ -261,8 +261,14 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
     public boolean onOptionsItemSelected(MenuItem item) {
         Log.i(TAG, "called onOptionsItemSelected; selected item: " + item);
         if (item == mItemFace50) {
-
-            mNativeDetector.callCxx("hello", "{\"name\":\"denny\", \"age\":23}");
+            JSONObject jsonObject = new JSONObject();
+            try {
+                jsonObject.put("src", mSrcbMat.getNativeObjAddr());
+                jsonObject.put("dst", mDstbMat.getNativeObjAddr());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            mNativeDetector.callCxx("drawRect", jsonObject.toString());
         }
         else if (item == mItemFace40) {
             JSONObject jsonObject = new JSONObject();
@@ -272,12 +278,21 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            mNativeDetector.callCxx("convertToGray", jsonObject.toString());
+            mNativeDetector.callCxx("cvt2Gray", jsonObject.toString());
         }
-        else if (item == mItemFace30)
-            setMinFaceSize(0.3f);
-        else if (item == mItemFace20)
-            setMinFaceSize(0.2f);
+        else if (item == mItemFace30) {
+            mDstbMat = Mat.zeros(0, 0, 0);
+        }
+        else if (item == mItemFace20) {
+            JSONObject jsonObject = new JSONObject();
+            try {
+                jsonObject.put("src", mSrcbMat.getNativeObjAddr());
+                jsonObject.put("dst", mDstbMat.getNativeObjAddr());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            mNativeDetector.callCxx("detectBlob", jsonObject.toString());
+        }
         else if (item == mItemType) {
             int tmpDetectorType = (mDetectorType + 1) % mDetectorName.length;
             item.setTitle(mDetectorName[tmpDetectorType]);

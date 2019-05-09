@@ -13,6 +13,7 @@
 #include <opencv2/imgproc.hpp>
 #include "cobValue.h"
 
+
 #define LOG_TAG "FaceDetection/DetectionBasedTracker"
 #define LOGD(...) ((void)__android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__))
 
@@ -46,28 +47,6 @@ public:
     virtual ~CascadeDetectorAdapter()
     {
         LOGD("CascadeDetectorAdapter::Detect::~Detect");
-    }
-
-    void gwas_test1()
-    {
-// Read image
-        Mat im = imread( "blob.jpg", IMREAD_GRAYSCALE );
-
-// Set up the detector with default parameters.
-        SimpleBlobDetector detector;
-
-// Detect blobs.
-        std::vector<KeyPoint> keypoints;
-        detector.detect( im, keypoints);
-
-// Draw detected blobs as red circles.
-// DrawMatchesFlags::DRAW_RICH_KEYPOINTS flag ensures the size of the circle corresponds to the size of blob
-        Mat im_with_keypoints;
-        drawKeypoints( im, keypoints, im_with_keypoints, Scalar(0,0,255), DrawMatchesFlags::DRAW_RICH_KEYPOINTS );
-
-// Show blobs
-        //imshow("keypoints", im_with_keypoints );
-        //waitKey(0);
     }
 
 private:
@@ -278,33 +257,92 @@ JNIEXPORT void JNICALL Java_org_opencv_samples_facedetect_DetectionBasedTracker_
     LOGD("Java_org_opencv_samples_facedetect_DetectionBasedTracker_nativeDetect END");
 }
 
-JNIEXPORT int JNICALL Java_org_opencv_samples_facedetect_DetectionBasedTracker_nativeCallCxx(JNIEnv*  env, jclass thiz, jstring jstrFunc, jstring jstrParam)
+///////////////// native call hanlder ////////////////////
+
+static long hanlder_convertToGray(cob::ValueMap& params)
+{
+    long srcAddr = params["src"].asLong();
+    long dstAddr = params["dst"].asLong();
+    if (srcAddr != 0 && dstAddr != 0)
+    {
+        Mat &srcMat = *((Mat *) srcAddr);
+        Mat &dstMat = *((Mat *) dstAddr);
+        cvtColor(srcMat, dstMat, COLOR_RGB2GRAY);
+    }
+    return 0;
+}
+
+static long hanlder_drawRect(cob::ValueMap& params)
+{
+    long srcAddr = params["src"].asLong();
+    long dstAddr = params["dst"].asLong();
+    if (srcAddr != 0 && dstAddr != 0)
+    {
+        Mat &srcMat = *((Mat *) srcAddr);
+        Mat &dstMat = *((Mat *) dstAddr);
+        Mat tempMat;
+
+        //cvtColor(srcMat, tempMat, COLOR_RGB2GRAY);
+
+        Point pt1(100, 900);
+        Point pt2(800, 100);
+        dstMat = srcMat;
+        rectangle(dstMat, pt1, pt2, Scalar(255, 0, 0, 255), 3);
+    }
+    return 0;
+}
+
+static long hanlder_detectBlob(cob::ValueMap& params)
+{
+    long srcAddr = params["src"].asLong();
+    long dstAddr = params["dst"].asLong();
+    if (srcAddr != 0 && dstAddr != 0)
+    {
+        Mat &srcMat = *((Mat *) srcAddr);
+        Mat &dstMat = *((Mat *) dstAddr);
+        Mat tempMat;
+
+        cvtColor(srcMat, tempMat, COLOR_RGB2GRAY);
+
+        Point pt1(100, 900);
+        Point pt2(800, 100);
+
+        rectangle(tempMat, pt1, pt2, Scalar(255, 0, 0, 255), 3);
+        dstMat = tempMat;
+
+        // Set up the detector with default parameters.
+        //SimpleBlobDetector detector;
+
+        // Detect blobs
+        //std::vector<KeyPoint> keypoints;
+        //detector.detect(tempMat, keypoints);
+
+        // Draw detected blobs as red circles.
+        // DrawMatchesFlags::DRAW_RICH_KEYPOINTS flag ensures the size of the circle corresponds to the size of blob
+        //drawKeypoints(tempMat, keypoints, dstMat, Scalar(0,0,255), DrawMatchesFlags::DRAW_RICH_KEYPOINTS );
+    }
+    return 0;
+}
+
+static std::unordered_map<std::string, std::function<long(cob::ValueMap&)>> mNativeCallHandlerMap {
+    {"cvt2Gray", hanlder_convertToGray},
+    {"drawRect", hanlder_drawRect},
+    {"detectBlob", hanlder_detectBlob},
+};
+
+JNIEXPORT long JNICALL Java_org_opencv_samples_facedetect_DetectionBasedTracker_nativeCallCxx(JNIEnv*  env, jclass thiz, jstring jstrFunc, jstring jstrParam)
 {
     std::string funcName = env->GetStringUTFChars(jstrFunc, NULL);
     std::string jsonParams = env->GetStringUTFChars(jstrParam, NULL);
-
-    /*
-    cob::ValueMap vm;
-    vm.createWithJsonString(jsonParams);
-    auto name = vm["name"].asString();
-    int age = vm["age"].asInt();*/
-
     LOGD("nativeCallCxx func: %s, param: %s", funcName.c_str(), jsonParams.c_str());
 
-    //LOGD("nativeCallCxx name=%s age=%d", name.c_str(), age);
-
-    if (funcName == "convertToGray")
+    auto iter = mNativeCallHandlerMap.find(funcName);
+    if (iter != mNativeCallHandlerMap.end())
     {
         cob::ValueMap vm;
         vm.createWithJsonString(jsonParams);
-        long srcAddr = vm["src"].asLong();
-        long dstAddr = vm["dst"].asLong();
-        if (srcAddr != 0 && dstAddr != 0)
-        {
-            Mat &srcMat = *((Mat *) srcAddr);
-            Mat &dstMat = *((Mat *) dstAddr);
-            cvtColor(srcMat, dstMat, COLOR_RGB2GRAY);
-        }
+        auto& handler = iter->second;
+        return handler(vm);
     }
     return 0;
 }
