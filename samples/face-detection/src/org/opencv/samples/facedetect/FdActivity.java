@@ -192,7 +192,7 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
         mDstbMat = new Mat();
 
         mSrcBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.cyq);
-        mSrcBitmap = imageScale(mSrcBitmap,  1920, 1080);
+        //mSrcBitmap = imageScale(mSrcBitmap,  1800, 1080);
 
         Utils.bitmapToMat(mSrcBitmap, mSrcbMat);
         //Imgproc.cvtColor(mSrcbMat, mDstbMat, Imgproc.COLOR_RGB2GRAY);

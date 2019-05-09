@@ -14,6 +14,7 @@ import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -35,6 +36,7 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
     private static final int STARTED = 1;
 
     private int mState = STOPPED;
+    private Bitmap mMatBitmap;
     private Bitmap mCacheBitmap;
     private CvCameraViewListener2 mListener;
     private boolean mSurfaceExist;
@@ -377,6 +379,30 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
         if (mCacheBitmap != null) {
             mCacheBitmap.recycle();
         }
+        if (mMatBitmap != null) {
+            mMatBitmap.recycle();
+        }
+    }
+
+    public static Bitmap adjustImageForDisplay(Bitmap bitmap, int dst_w, int dst_h) {
+        int src_w = bitmap.getWidth();
+        int src_h = bitmap.getHeight();
+        if (src_w == dst_w || src_h == dst_h)
+            return bitmap;
+
+        Matrix matrix = new Matrix();
+        if (src_w < src_h) {
+            matrix.postRotate(-90);
+            int temp = src_w;
+            src_w = src_h;
+            src_h = temp;
+        }
+        float scale_w = ((float) dst_w) / src_w;
+        float scale_h = ((float) dst_h) / src_h;
+        float scale = scale_w < scale_h ? scale_w : scale_h;
+        matrix.postScale(scale, scale);
+        Bitmap dstbmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        return dstbmp;
     }
 
     /**
@@ -397,7 +423,12 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
         boolean bmpValid = true;
         if (modified != null) {
             try {
-                Utils.matToBitmap(modified, mCacheBitmap);
+                if (mMatBitmap.getWidth() != modified.cols() ||
+                        mMatBitmap.getHeight() != modified.rows()) {
+                    mMatBitmap = Bitmap.createBitmap(modified.cols(), modified.rows(), Bitmap.Config.ARGB_8888);
+                }
+                Utils.matToBitmap(modified, mMatBitmap);
+                mCacheBitmap = adjustImageForDisplay(mMatBitmap, 1920, 1080);
             } catch(Exception e) {
                 Log.e(TAG, "Mat type: " + modified);
                 Log.e(TAG, "Bitmap type: " + mCacheBitmap.getWidth() + "*" + mCacheBitmap.getHeight());
@@ -455,6 +486,7 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
     protected void AllocateCache()
     {
         mCacheBitmap = Bitmap.createBitmap(mFrameWidth, mFrameHeight, Bitmap.Config.ARGB_8888);
+        mMatBitmap = Bitmap.createBitmap(mFrameWidth, mFrameHeight, Bitmap.Config.ARGB_8888);
     }
 
     public interface ListItemAccessor {
