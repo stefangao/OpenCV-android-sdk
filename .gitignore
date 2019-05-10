@@ -2,3 +2,4 @@ samples/*/build/**
 samples/.gradle/**
 samples/.idea/**
 sdk/build/**
+samples/face-detection/res/raw/yolov3_weights

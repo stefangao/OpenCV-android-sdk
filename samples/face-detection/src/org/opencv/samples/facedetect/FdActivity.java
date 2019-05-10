@@ -10,16 +10,12 @@ import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame;
 import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
 import org.opencv.android.Utils;
-import org.opencv.core.Core;
+import org.opencv.core.CvType;
 import org.opencv.core.Mat;
-import org.opencv.core.MatOfRect;
-import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
-import org.opencv.core.Size;
 import org.opencv.android.CameraBridgeViewBase;
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
 import org.opencv.objdetect.CascadeClassifier;
-import org.opencv.imgproc.Imgproc;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -32,7 +28,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 
-import android.graphics.Matrix;
 import org.json.JSONObject;
 import org.json.JSONException;
 
@@ -64,11 +59,14 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
     private CameraBridgeViewBase   mOpenCvCameraView;
 
     //
-    private Bitmap mSrcBitmap;
-    private Bitmap mDstBitmap;
+    private Bitmap mSrcBitmap = null;
     private Mat mSrcbMat;
     private Mat mDstbMat;
     private Mat mCanvasMat;
+    private Mat mCfgbMat;
+    private Mat mModelMat;
+    private Mat mClassMat;
+    private boolean mNetConfigured = false;
 
     private BaseLoaderCallback  mLoaderCallback = new BaseLoaderCallback(this) {
         @Override
@@ -173,37 +171,31 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
         mOpenCvCameraView.disableView();
     }
 
-    public static Bitmap imageScale(Bitmap bitmap, int dst_w, int dst_h) {
-        int src_w = bitmap.getWidth();
-        int src_h = bitmap.getHeight();
-        float scale_w = ((float) dst_w) / src_w;
-        float scale_h = ((float) dst_h) / src_h;
-        Matrix matrix = new Matrix();
-        matrix.postScale(scale_w, scale_h);
-        Bitmap dstbmp = Bitmap.createBitmap(bitmap, 0, 0, src_w, src_h, matrix, true);
-        return dstbmp;
-    }
-
     public void onCameraViewStarted(int width, int height) {
         mGray = new Mat();
         mRgba = new Mat();
 
-        mSrcbMat = new Mat();
-        mDstbMat = new Mat();
+        if (mSrcBitmap == null) {
+            mSrcbMat = new Mat();
+            mDstbMat = new Mat();
+            mCfgbMat = new Mat();
+            mModelMat = new Mat();
+            mClassMat = new Mat();
 
-        mSrcBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.cyq);
-        //mSrcBitmap = imageScale(mSrcBitmap,  1800, 1080);
-
-        Utils.bitmapToMat(mSrcBitmap, mSrcbMat);
-        //Imgproc.cvtColor(mSrcbMat, mDstbMat, Imgproc.COLOR_RGB2GRAY);
+            mSrcBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.mandog);
+            Utils.bitmapToMat(mSrcBitmap, mSrcbMat);
+        }
     }
 
     public void onCameraViewStopped() {
         mGray.release();
         mRgba.release();
 
-        mSrcbMat.release();
-        mDstbMat.release();
+        //mSrcbMat.release();
+        //mDstbMat.release();
+        mCfgbMat.release();
+        mModelMat.release();
+        mClassMat.release();
     }
 
     public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
@@ -249,18 +241,37 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         Log.i(TAG, "called onCreateOptionsMenu");
-        mItemFace50 = menu.add("Face size 50%");
-        mItemFace40 = menu.add("Face size 40%");
-        mItemFace30 = menu.add("Face size 30%");
-        mItemFace20 = menu.add("Face size 20%");
-        mItemType   = menu.add(mDetectorName[mDetectorType]);
+        mItemFace50 = menu.add("people horse");
+        mItemFace40 = menu.add("street");
+        mItemFace30 = menu.add("man dog");
+        mItemFace20 = menu.add("bird");
+        mItemType   = menu.add("config net");
         return true;
+    }
+
+    public Mat inputStream2Mat(InputStream in) throws IOException {
+        byte[] b = new byte[256*1024*1024];
+        int count = 0;
+        int n = 0;
+        while ((n = in.read(b, count, b.length - count)) != -1) {
+            count += n;
+        }
+        Mat mat = new Mat(1, count, CvType.CV_8UC1);
+        mat.put(0, 0, b);
+        return mat;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Log.i(TAG, "called onOptionsItemSelected; selected item: " + item);
+
+        if (item != mItemType && !mNetConfigured)
+            return false;
+
         if (item == mItemFace50) {
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.people_horse);
+            Utils.bitmapToMat(bitmap, mSrcbMat);
+
             JSONObject jsonObject = new JSONObject();
             try {
                 jsonObject.put("src", mSrcbMat.getNativeObjAddr());
@@ -268,9 +279,12 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            mNativeDetector.callCxx("drawRect", jsonObject.toString());
+            mNativeDetector.callCxx("detectObject", jsonObject.toString());
         }
         else if (item == mItemFace40) {
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.street);
+            Utils.bitmapToMat(bitmap, mSrcbMat);
+
             JSONObject jsonObject = new JSONObject();
             try {
                 jsonObject.put("src", mSrcbMat.getNativeObjAddr());
@@ -278,12 +292,12 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            mNativeDetector.callCxx("cvt2Gray", jsonObject.toString());
+            mNativeDetector.callCxx("detectObject", jsonObject.toString());
         }
         else if (item == mItemFace30) {
-            mDstbMat = Mat.zeros(0, 0, 0);
-        }
-        else if (item == mItemFace20) {
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.mandog);
+            Utils.bitmapToMat(bitmap, mSrcbMat);
+
             JSONObject jsonObject = new JSONObject();
             try {
                 jsonObject.put("src", mSrcbMat.getNativeObjAddr());
@@ -291,12 +305,48 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            mNativeDetector.callCxx("detectBlob", jsonObject.toString());
+            mNativeDetector.callCxx("detectObject", jsonObject.toString());
+        }
+        else if (item == mItemFace20) {
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.bird);
+            Utils.bitmapToMat(bitmap, mSrcbMat);
+
+            JSONObject jsonObject = new JSONObject();
+            try {
+                jsonObject.put("src", mSrcbMat.getNativeObjAddr());
+                jsonObject.put("dst", mDstbMat.getNativeObjAddr());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            mNativeDetector.callCxx("detectObject", jsonObject.toString());
         }
         else if (item == mItemType) {
-            int tmpDetectorType = (mDetectorType + 1) % mDetectorName.length;
-            item.setTitle(mDetectorName[tmpDetectorType]);
-            setDetectorType(tmpDetectorType);
+            JSONObject jsonObject = new JSONObject();
+            try {
+                if (mCfgbMat.empty()) {
+                    InputStream cfgIn = getResources().openRawResource(R.raw.yolov3_cfg);
+                    mCfgbMat = inputStream2Mat(cfgIn);
+                }
+                jsonObject.put("cfg", mCfgbMat.getNativeObjAddr());
+
+                if (mModelMat.empty()) {
+                    InputStream weightsIn = getResources().openRawResource(R.raw.yolov3_weights);
+                    mModelMat =  inputStream2Mat(weightsIn);
+                }
+                jsonObject.put("model", mModelMat.getNativeObjAddr());
+
+                if (mClassMat.empty()) {
+                    InputStream classIn = getResources().openRawResource(R.raw.coco_names);
+                    mClassMat =  inputStream2Mat(classIn);
+                }
+                jsonObject.put("class", mClassMat.getNativeObjAddr());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            mNativeDetector.callCxx("configNet", jsonObject.toString());
+            mNetConfigured = true;
         }
         return true;
     }
