@@ -12,10 +12,14 @@ import org.opencv.android.OpenCVLoader;
 import org.opencv.android.Utils;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
+import org.opencv.core.MatOfRect;
+import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
+import org.opencv.core.Size;
 import org.opencv.android.CameraBridgeViewBase;
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
 import org.opencv.objdetect.CascadeClassifier;
+import org.opencv.imgproc.Imgproc;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -30,6 +34,8 @@ import android.view.WindowManager;
 
 import org.json.JSONObject;
 import org.json.JSONException;
+import android.widget.Toast;
+import android.view.Gravity;
 
 public class FdActivity extends AppCompatActivity implements CvCameraViewListener2 {
 
@@ -58,15 +64,17 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
 
     private CameraBridgeViewBase   mOpenCvCameraView;
 
+    enum Status {PREVIEW, SNAPSHOT, DETECTED}
+
     //
     private Bitmap mSrcBitmap = null;
     private Mat mSrcbMat;
     private Mat mDstbMat;
-    private Mat mCanvasMat;
     private Mat mCfgbMat;
     private Mat mModelMat;
     private Mat mClassMat;
     private boolean mNetConfigured = false;
+    private Status mStatus = Status.PREVIEW;
 
     private BaseLoaderCallback  mLoaderCallback = new BaseLoaderCallback(this) {
         @Override
@@ -185,6 +193,20 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
             mSrcBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.mandog);
             Utils.bitmapToMat(mSrcBitmap, mSrcbMat);
         }
+
+        if (!mNetConfigured) {
+            Toast showToast = Toast.makeText(FdActivity.this, "Camera is starting...", Toast.LENGTH_LONG);
+            showToast.setGravity(Gravity.BOTTOM, 0, 0);
+            showToast.show();
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    configDetectNet();
+                    mNetConfigured = true;
+                }
+            }, "configNet").start();
+        }
     }
 
     public void onCameraViewStopped() {
@@ -199,53 +221,56 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
     }
 
     public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
-        if (mDstbMat.empty())
+        if (mStatus == Status.PREVIEW) {
+            inputFrame.rgba().copyTo(mSrcbMat);
             return mSrcbMat;
-        else
-            return mDstbMat;
 
-        /*
-        mRgba = inputFrame.rgba();
-        mGray = inputFrame.gray();
+            /*
+            mRgba = inputFrame.rgba();
+            mGray = inputFrame.gray();
 
-        if (mAbsoluteFaceSize == 0) {
-            int height = mGray.rows();
-            if (Math.round(height * mRelativeFaceSize) > 0) {
-                mAbsoluteFaceSize = Math.round(height * mRelativeFaceSize);
+            if (mAbsoluteFaceSize == 0) {
+                int height = mGray.rows();
+                if (Math.round(height * mRelativeFaceSize) > 0) {
+                    mAbsoluteFaceSize = Math.round(height * mRelativeFaceSize);
+                }
+                mNativeDetector.setMinFaceSize(mAbsoluteFaceSize);
             }
-            mNativeDetector.setMinFaceSize(mAbsoluteFaceSize);
-        }
 
-        MatOfRect faces = new MatOfRect();
+            MatOfRect faces = new MatOfRect();
 
-        if (mDetectorType == JAVA_DETECTOR) {
-            if (mJavaDetector != null)
-                mJavaDetector.detectMultiScale(mGray, faces, 1.1, 2, 0, // TODO: objdetect.CV_HAAR_SCALE_IMAGE
-                        new Size(mAbsoluteFaceSize, mAbsoluteFaceSize), new Size());
-        }
-        else if (mDetectorType == NATIVE_DETECTOR) {
-            if (mNativeDetector != null)
-                mNativeDetector.detect(mGray, faces);
-        }
-        else {
-            Log.e(TAG, "Detection method is not selected!");
-        }
+            if (mDetectorType == JAVA_DETECTOR) {
+                if (mJavaDetector != null)
+                    mJavaDetector.detectMultiScale(mGray, faces, 1.1, 2, 0, // TODO: objdetect.CV_HAAR_SCALE_IMAGE
+                            new Size(mAbsoluteFaceSize, mAbsoluteFaceSize), new Size());
+            } else if (mDetectorType == NATIVE_DETECTOR) {
+                if (mNativeDetector != null)
+                    mNativeDetector.detect(mGray, faces);
+            } else {
+                Log.e(TAG, "Detection method is not selected!");
+            }
 
-        Rect[] facesArray = faces.toArray();
-        for (int i = 0; i < facesArray.length; i++)
-            Imgproc.rectangle(mRgba, facesArray[i].tl(), facesArray[i].br(), FACE_RECT_COLOR, 3);
+            Rect[] facesArray = faces.toArray();
+            for (int i = 0; i < facesArray.length; i++)
+                Imgproc.rectangle(mRgba, facesArray[i].tl(), facesArray[i].br(), FACE_RECT_COLOR, 3);
 
-        return mRgba;*/
+            return mRgba;*/
+        } else if (mStatus == Status.SNAPSHOT) {
+            return mSrcbMat;
+        } else {
+            return mDstbMat;
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         Log.i(TAG, "called onCreateOptionsMenu");
-        mItemFace50 = menu.add("people horse");
-        mItemFace40 = menu.add("street");
-        mItemFace30 = menu.add("man dog");
-        mItemFace20 = menu.add("bird");
-        mItemType   = menu.add("config net");
+
+        mItemFace40 = menu.add("Detect Object");
+        mItemFace30 = menu.add("Preview");
+        mItemFace50 = menu.add("Take photo");
+        //mItemFace20 = menu.add("bird");
+        //mItemType   = menu.add("config net");
         return true;
     }
 
@@ -261,51 +286,69 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
         return mat;
     }
 
+    public void configDetectNet() {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            if (mCfgbMat.empty()) {
+                InputStream cfgIn = getResources().openRawResource(R.raw.yolov3_cfg);
+                mCfgbMat = inputStream2Mat(cfgIn);
+            }
+            jsonObject.put("cfg", mCfgbMat.getNativeObjAddr());
+
+            if (mModelMat.empty()) {
+                InputStream weightsIn = getResources().openRawResource(R.raw.yolov3_weights);
+                mModelMat =  inputStream2Mat(weightsIn);
+            }
+            jsonObject.put("model", mModelMat.getNativeObjAddr());
+
+            if (mClassMat.empty()) {
+                InputStream classIn = getResources().openRawResource(R.raw.coco_names);
+                mClassMat =  inputStream2Mat(classIn);
+            }
+            jsonObject.put("class", mClassMat.getNativeObjAddr());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        mNativeDetector.callCxx("configNet", jsonObject.toString());
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Log.i(TAG, "called onOptionsItemSelected; selected item: " + item);
 
+        if (item == mItemFace50) {
+            mStatus = Status.SNAPSHOT;
+        }
+
         if (item != mItemType && !mNetConfigured)
             return false;
 
-        if (item == mItemFace50) {
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.people_horse);
-            Utils.bitmapToMat(bitmap, mSrcbMat);
+        if (item == mItemFace40) {
+            mStatus = Status.SNAPSHOT;
 
-            JSONObject jsonObject = new JSONObject();
-            try {
-                jsonObject.put("src", mSrcbMat.getNativeObjAddr());
-                jsonObject.put("dst", mDstbMat.getNativeObjAddr());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            mNativeDetector.callCxx("detectObject", jsonObject.toString());
-        }
-        else if (item == mItemFace40) {
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.street);
-            Utils.bitmapToMat(bitmap, mSrcbMat);
+            Toast showToast = Toast.makeText(FdActivity.this, "Detecting object...", Toast.LENGTH_LONG);
+            showToast.setGravity(Gravity.BOTTOM, 0, 0);
+            showToast.show();
 
-            JSONObject jsonObject = new JSONObject();
-            try {
-                jsonObject.put("src", mSrcbMat.getNativeObjAddr());
-                jsonObject.put("dst", mDstbMat.getNativeObjAddr());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            mNativeDetector.callCxx("detectObject", jsonObject.toString());
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    JSONObject jsonObject = new JSONObject();
+                    try {
+                        jsonObject.put("src", mSrcbMat.getNativeObjAddr());
+                        jsonObject.put("dst", mDstbMat.getNativeObjAddr());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    mNativeDetector.callCxx("detectObject", jsonObject.toString());
+                    mStatus = Status.DETECTED;
+                }
+            }, "configNet").start();
         }
         else if (item == mItemFace30) {
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.mandog);
-            Utils.bitmapToMat(bitmap, mSrcbMat);
-
-            JSONObject jsonObject = new JSONObject();
-            try {
-                jsonObject.put("src", mSrcbMat.getNativeObjAddr());
-                jsonObject.put("dst", mDstbMat.getNativeObjAddr());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            mNativeDetector.callCxx("detectObject", jsonObject.toString());
+            mStatus = Status.PREVIEW;
         }
         else if (item == mItemFace20) {
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.bird);
@@ -321,31 +364,7 @@ public class FdActivity extends AppCompatActivity implements CvCameraViewListene
             mNativeDetector.callCxx("detectObject", jsonObject.toString());
         }
         else if (item == mItemType) {
-            JSONObject jsonObject = new JSONObject();
-            try {
-                if (mCfgbMat.empty()) {
-                    InputStream cfgIn = getResources().openRawResource(R.raw.yolov3_cfg);
-                    mCfgbMat = inputStream2Mat(cfgIn);
-                }
-                jsonObject.put("cfg", mCfgbMat.getNativeObjAddr());
-
-                if (mModelMat.empty()) {
-                    InputStream weightsIn = getResources().openRawResource(R.raw.yolov3_weights);
-                    mModelMat =  inputStream2Mat(weightsIn);
-                }
-                jsonObject.put("model", mModelMat.getNativeObjAddr());
-
-                if (mClassMat.empty()) {
-                    InputStream classIn = getResources().openRawResource(R.raw.coco_names);
-                    mClassMat =  inputStream2Mat(classIn);
-                }
-                jsonObject.put("class", mClassMat.getNativeObjAddr());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            mNativeDetector.callCxx("configNet", jsonObject.toString());
+            configDetectNet();
             mNetConfigured = true;
         }
         return true;

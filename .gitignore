@@ -1,4 +1,5 @@
 samples/*/build/**
+*/.externalNativeBuild/**
 samples/.gradle/**
 samples/.idea/**
 sdk/build/**
