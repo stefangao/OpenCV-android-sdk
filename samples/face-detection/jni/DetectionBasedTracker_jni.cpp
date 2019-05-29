@@ -556,7 +556,7 @@ JNIEXPORT long JNICALL Java_org_opencv_samples_facedetect_DetectionBasedTracker_
     if (iter != mNativeCallHandlerMap.end())
     {
         cob::ValueMap vm;
-        vm.createWithJsonString(jsonParams);
+        vm.fromJson(jsonParams);
         auto& handler = iter->second;
         return handler(vm);
     }

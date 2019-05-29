@@ -35,7 +35,6 @@
 #include "json/writer.h"
 #include "json/stringbuffer.h"
 #include "cobMacros.h"
-#include "cobUtils.h"
 
 NS_COB_BEGIN
 
