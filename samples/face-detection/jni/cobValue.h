@@ -24,8 +24,8 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-#ifndef __COB_Value__
-#define __COB_Value__
+#ifndef __COB_VALUE_H__
+#define __COB_VALUE_H__
 
 #include <string>
 #include <vector>
@@ -34,16 +34,8 @@
 #include "json/document.h"
 #include "json/writer.h"
 #include "json/stringbuffer.h"
-
-#ifdef __cplusplus
-#define NS_COB_BEGIN                     namespace cob {
-#define NS_COB_END                       }
-#define USING_NS_COB                     using namespace cob
-#else
-#define NS_COB_BEGIN
-    #define NS_COB_END
-    #define USING_NS_COB
-#endif
+#include "cobMacros.h"
+#include "cobUtils.h"
 
 NS_COB_BEGIN
 
@@ -299,16 +291,16 @@ public:
     {
         *this = (ValueMap&)other;
     }
-    void createWithJsonString(const std::string& content);
-    void createWithJsonFile(const std::string& filename);
-    std::string makeJsonString();
+
     const Value& get(const std::string &path) const;
     Value& at(const std::string &path);
+
+    bool fromJson(const std::string& jsonContent);
+    std::string toJson() const;
 
     bool get(const std::string &path, ValueVector& vv) const;
     bool set(const std::string &path, const Value& value);
     bool set(const std::string &path, const std::string& value);
-    bool replaceEmbeddedValue();
 
     ValueMap& operator+= (const ValueMap& other);
 

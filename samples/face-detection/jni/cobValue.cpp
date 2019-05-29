@@ -34,12 +34,9 @@ using namespace rapidjson;
 
 NS_COB_BEGIN
 
-#define COB_SAFE_DELETE(p)    do { delete (p); (p) = nullptr; } while(0)
-
 const ValueVector ValueVectorNull;
 const ValueMap ValueMapNull;
 const ValueMapIntKey ValueMapIntKeyNull;
-
 const Value Value::Null;
 
 Value::Value()
@@ -428,7 +425,7 @@ bool Value::operator== (const Value& v) const
         case Type::BYTE:    return v._field.byteVal     == this->_field.byteVal;
         case Type::INTEGER: return v._field.intVal      == this->_field.intVal;
         case Type::UNSIGNED:return v._field.unsignedVal == this->_field.unsignedVal;
-        case Type::LONG: return v._field.longVal      == this->_field.longVal;
+        case Type::LONG: return v._field.longVal == this->_field.longVal;
         case Type::ULONG:return v._field.ulongVal == this->_field.ulongVal;
         case Type::BOOLEAN: return v._field.boolVal     == this->_field.boolVal;
         case Type::STRING:  return *v._field.strVal     == *this->_field.strVal;
@@ -487,6 +484,8 @@ bool Value::operator== (const Value& v) const
 /// Convert value to a specified type
 unsigned char Value::asByte() const
 {
+    COBASSERT(_type != Type::VECTOR && _type != Type::MAP && _type != Type::INT_KEY_MAP, "Only base type (bool, string, float, double, int) could be converted");
+
     if (_type == Type::BYTE)
     {
         return _field.byteVal;
@@ -537,6 +536,7 @@ unsigned char Value::asByte() const
 
 int Value::asInt() const
 {
+    COBASSERT(_type != Type::VECTOR && _type != Type::MAP && _type != Type::INT_KEY_MAP, "Only base type (bool, string, float, double, int) could be converted");
     if (_type == Type::INTEGER)
     {
         return _field.intVal;
@@ -544,6 +544,7 @@ int Value::asInt() const
 
     if (_type == Type::UNSIGNED)
     {
+        COBASSERT(_field.unsignedVal < INT_MAX, "Can only convert values < INT_MAX");
         return (int)_field.unsignedVal;
     }
 
@@ -588,6 +589,7 @@ int Value::asInt() const
 
 unsigned int Value::asUnsignedInt() const
 {
+    COBASSERT(_type != Type::VECTOR && _type != Type::MAP && _type != Type::INT_KEY_MAP, "Only base type (bool, string, float, double, int) could be converted");
     if (_type == Type::UNSIGNED)
     {
         return _field.unsignedVal;
@@ -595,6 +597,7 @@ unsigned int Value::asUnsignedInt() const
 
     if (_type == Type::INTEGER)
     {
+        COBASSERT(_field.intVal >= 0, "Only values >= 0 can be converted to unsigned");
         return static_cast<unsigned int>(_field.intVal);
     }
 
@@ -739,6 +742,7 @@ unsigned long Value::asUlong() const
 
 float Value::asFloat() const
 {
+    COBASSERT(_type != Type::VECTOR && _type != Type::MAP && _type != Type::INT_KEY_MAP, "Only base type (bool, string, float, double, int) could be converted");
     if (_type == Type::FLOAT)
     {
         return _field.floatVal;
@@ -789,6 +793,7 @@ float Value::asFloat() const
 
 double Value::asDouble() const
 {
+    COBASSERT(_type != Type::VECTOR && _type != Type::MAP && _type != Type::INT_KEY_MAP, "Only base type (bool, string, float, double, int) could be converted");
     if (_type == Type::DOUBLE)
     {
         return _field.doubleVal;
@@ -839,6 +844,7 @@ double Value::asDouble() const
 
 bool Value::asBool() const
 {
+    COBASSERT(_type != Type::VECTOR && _type != Type::MAP && _type != Type::INT_KEY_MAP, "Only base type (bool, string, float, double, int) could be converted");
     if (_type == Type::BOOLEAN)
     {
         return _field.boolVal;
@@ -889,6 +895,8 @@ bool Value::asBool() const
 
 std::string Value::asString() const
 {
+    COBASSERT(_type != Type::VECTOR && _type != Type::MAP && _type != Type::INT_KEY_MAP, "Only base type (bool, string, float, double, int) could be converted");
+
     if (_type == Type::STRING)
     {
         return *_field.strVal;
@@ -930,31 +938,37 @@ std::string Value::asString() const
 
 ValueVector& Value::asValueVector()
 {
+    COBASSERT(_type == Type::VECTOR, "The value type isn't Type::VECTOR");
     return *_field.vectorVal;
 }
 
 const ValueVector& Value::asValueVector() const
 {
+    COBASSERT(_type == Type::VECTOR, "The value type isn't Type::VECTOR");
     return *_field.vectorVal;
 }
 
 ValueMap& Value::asValueMap()
 {
+    COBASSERT(_type == Type::MAP, "The value type isn't Type::MAP");
     return *_field.mapVal;
 }
 
 const ValueMap& Value::asValueMap() const
 {
+    COBASSERT(_type == Type::MAP, "The value type isn't Type::MAP");
     return *_field.mapVal;
 }
 
 ValueMapIntKey& Value::asIntKeyMap()
 {
+    COBASSERT(_type == Type::INT_KEY_MAP, "The value type isn't Type::INT_KEY_MAP");
     return *_field.intKeyMapVal;
 }
 
 const ValueMapIntKey& Value::asIntKeyMap() const
 {
+    COBASSERT(_type == Type::INT_KEY_MAP, "The value type isn't Type::INT_KEY_MAP");
     return *_field.intKeyMapVal;
 }
 
@@ -1042,6 +1056,7 @@ static std::string visit(const Value& v, int depth)
             ret << visitMap(v.asIntKeyMap(), depth);
             break;
         default:
+            COBASSERT(false, "Invalid type!");
             break;
     }
 
@@ -1211,7 +1226,10 @@ ValueMap ValueMapUtil::getValueMapFromJsonFile(const std::string& filename)
         if(val.getType() == Value::Type::MAP) {
             return val.asValueMap();
         }
+        COBLOG("JSON wasn't a ValueMap/Dict");
     }
+
+    COBLOG("JSON Parse Error: %d\n", doc.GetParseError());
 
     ValueMap ret;
     return ret;
@@ -1228,7 +1246,10 @@ ValueMap ValueMapUtil::getValueMapFromJsonString(const std::string& content)
         if(val.getType() == Value::Type::MAP) {
             return val.asValueMap();
         }
+        COBLOG("JSON wasn't a ValueMap/Dict");
     }
+
+    COBLOG("JSON Parse Error: %d\n", doc.GetParseError());
 
     ValueMap ret;
     return ret;
@@ -1248,7 +1269,10 @@ ValueVector ValueMapUtil::getValueVectorFromJsonFile(const std::string& filename
         if(val.getType() == Value::Type::VECTOR) {
             return val.asValueVector();
         }
+        COBLOG("JSON wasn't a ValueVector/Array");
     }
+
+    COBLOG("JSON Parse Error: %d\n", doc.GetParseError());
 
     ValueVector ret;
     return ret;
@@ -1265,7 +1289,10 @@ ValueVector ValueMapUtil::getValueVectorFromJsonString(const std::string& conten
         if(val.getType() == Value::Type::VECTOR) {
             return val.asValueVector();
         }
+        COBLOG("JSON wasn't a ValueVector/Array");
     }
+
+    COBLOG("JSON Parse Error: %d\n", doc.GetParseError());
 
     return ValueVectorNull;
 }
@@ -1408,6 +1435,7 @@ static bool parserJsonValueFromValue(const Value& value, rapidjson::Value& jvalu
             ret = false;
             break;
     }
+    COBASSERT(ret, "parserJsonValueFromValue: type is unknown");
     return ret;
 }
 
@@ -1569,6 +1597,7 @@ bool ValueMapUtil::replaceEmbeddedValue(ValueMap& valueMap)
         if (key.at(0) == '@')
         {
             std::string& realKey = key.erase(0, 1);
+            COBASSERT(value.getType() == Value::Type::STRING, "@value should be string");
 
             std::string path = value.asString();
             size_t pos1 = 0;
@@ -1581,8 +1610,10 @@ bool ValueMapUtil::replaceEmbeddedValue(ValueMap& valueMap)
                 {
                     std::string plistFile = "";//FileUtils::getInstance()->fullPathForFilename(plist); //gwas
                     ValueMap dict;//FileUtils::getInstance()->getValueMapFromFile(plistFile.c_str());
+                    COBASSERT(!dict.empty(), "HeroDefs: file is empty");
 
                     auto& value2 = at(dict, ppath);
+                    COBASSERT(!value2.isNull(), "value is null");
 
                     valueMap.erase(iter++);
                     valueMap[realKey] = value2;
@@ -1629,23 +1660,6 @@ bool ValueMapUtil::replaceEmbeddedValue(ValueVector& valueVector)
     return true;
 }
 
-void ValueMap::createWithJsonString(const std::string& content)
-{
-    auto vm = (ValueMap*)this;
-    *vm = ValueMapUtil::getValueMapFromJsonString(content);
-}
-
-void ValueMap::createWithJsonFile(const std::string& filename)
-{
-    auto vm = (ValueMap*)this;
-    *vm = ValueMapUtil::getValueMapFromJsonFile(filename);
-}
-
-std::string ValueMap::makeJsonString()
-{
-    return ValueMapUtil::makeJsonFromValueMap(*this);
-}
-
 const Value& ValueMap::get(const std::string &path) const
 {
     return ValueMapUtil::get(*this, path);
@@ -1686,11 +1700,6 @@ bool ValueMap::set(const std::string &path, const std::string& value)
     return ValueMapUtil::set(*this, path, Value(value));
 }
 
-bool ValueMap::replaceEmbeddedValue()
-{
-    return ValueMapUtil::replaceEmbeddedValue(*this);
-}
-
 bool ValueMap::isExist(const std::string& key)
 {
     return this->find(key) != this->end();
@@ -1704,12 +1713,13 @@ void ValueMap::dump()
         auto &value = iter->second;
         if (value.getType() == Value::Type::MAP)
         {
+            COBLOG("HVM::dump: key=%s,type=%d", key.c_str(), (int)value.getType());
             auto& vm = (ValueMap&)value.asValueMap();
             vm.dump();
         }
         else if (value.getType() != Value::Type::VECTOR && value.getType() != Value::Type::INT_KEY_MAP)
         {
-            ;
+            COBLOG("HVM::dump: key=%s,type=%d,val=%s", key.c_str(), (int)value.getType(), value.asString().c_str());
         }
     }
 }
@@ -1737,6 +1747,31 @@ ValueMap& ValueMap::operator+= (const ValueMap& other)
         }
     }
     return *this;
+}
+
+bool ValueMap::fromJson(const std::string& jsonContent)
+{
+    rapidjson::Document doc;
+    doc.Parse<0>(jsonContent.c_str());
+    if (! doc.HasParseError())
+    {
+        // check that root is object not array
+        auto val = ValueMapUtil::parseValueFromJsonValue(doc);
+        if(val.getType() == Value::Type::MAP) {
+            *this = val.asValueMap();
+            return true;
+        }
+        COBLOG("JSON wasn't a ValueMap/Dict");
+    }
+
+    COBLOG("JSON Parse Error: %d\n", doc.GetParseError());
+
+    return false;
+}
+
+std::string ValueMap::toJson() const
+{
+	return ValueMapUtil::makeJsonFromValueMap(*this);
 }
 
 void ValueVector::split(const std::string& str, char separator)
