@@ -1,3 +1,0 @@
-/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/edit_cache.dir
-/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/rebuild_cache.dir
-/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/detection_based_tracker.dir

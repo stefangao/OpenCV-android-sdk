@@ -1,4 +1,0 @@
--- ANDROID_ABI=x86_64
--- Configuring done
--- Generating done
--- Build files have been written to: /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/.externalNativeBuild/cmake/debug/x86_64

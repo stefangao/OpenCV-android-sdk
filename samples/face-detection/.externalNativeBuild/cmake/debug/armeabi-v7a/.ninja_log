@@ -1,7 +1,0 @@
-# ninja log v5
-0	865	0	CMakeFiles/detection_based_tracker.dir/DetectionBasedTracker_jni.cpp.o	be42518993c43eb2
-866	888	0	/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/build/intermediates/cmake/debug/obj/armeabi-v7a/libdetection_based_tracker.so	d7e3cd35af340338
-1	898	0	CMakeFiles/detection_based_tracker.dir/DetectionBasedTracker_jni.cpp.o	be42518993c43eb2
-899	938	0	/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/build/intermediates/cmake/debug/obj/armeabi-v7a/libdetection_based_tracker.so	d7e3cd35af340338
-1	992	0	CMakeFiles/detection_based_tracker.dir/DetectionBasedTracker_jni.cpp.o	be42518993c43eb2
-992	1032	0	/home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/build/intermediates/cmake/debug/obj/armeabi-v7a/libdetection_based_tracker.so	d7e3cd35af340338

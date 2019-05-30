@@ -1,2 +1,0 @@
-[1/2] Building CXX object CMakeFiles/detection_based_tracker.dir/DetectionBasedTracker_jni.cpp.o
-[2/2] Linking CXX shared library /home/CORPUSERS/28848747/gwas/myopencv/OpenCV-android-sdk/samples/face-detection/build/intermediates/cmake/debug/obj/x86_64/libdetection_based_tracker.so
