@@ -230,7 +230,6 @@ JNIEXPORT void JNICALL Java_org_opencv_samples_facedetect_DetectionBasedTracker_
     LOGD("Java_org_opencv_samples_facedetect_DetectionBasedTracker_nativeSetFaceSize -- END");
 }
 
-
 JNIEXPORT void JNICALL Java_org_opencv_samples_facedetect_DetectionBasedTracker_nativeDetect
 (JNIEnv * jenv, jclass, jlong thiz, jlong imageGray, jlong faces)
 {
@@ -538,12 +537,49 @@ static long hanlder_detectObject(cob::ValueMap& params)
     return 0;
 }
 
+static long hanlder_processCloak(cob::ValueMap& params)
+{
+    long srcAddr = params["src"].asLong();
+    long dstAddr = params["dst"].asLong();
+    long bgAddr = params["bg"].asLong();
+    if (srcAddr != 0 && dstAddr != 0) {
+        Mat &srcMat = *((Mat *) srcAddr);
+        Mat &dstMat = *((Mat *) dstAddr);
+        Mat &background = *((Mat *) bgAddr);
+
+        Mat hsv;
+        Mat frame = srcMat;
+        //flip(frame,frame,1);
+        cvtColor(frame, hsv, COLOR_RGB2HSV); //change COLOR_BGR2HSV to COLOR_RGB2HSV
+
+        Mat mask1,mask2;
+        inRange(hsv, Scalar(0, 120, 70), Scalar(10, 255, 255), mask1);
+        inRange(hsv, Scalar(170, 120, 70), Scalar(180, 255, 255), mask2);
+
+        mask1 = mask1 + mask2;
+
+        Mat kernel = Mat::ones(3,3, CV_32F);
+        morphologyEx(mask1,mask1,cv::MORPH_OPEN,kernel);
+        morphologyEx(mask1,mask1,cv::MORPH_DILATE,kernel);
+
+        bitwise_not(mask1,mask2);
+
+        Mat res1, res2, final_output;
+        bitwise_and(frame,frame,res1,mask2);
+        bitwise_and(background,background,res2,mask1);
+        addWeighted(res1,1,res2,1,0,dstMat);
+    }
+
+    return 0;
+}
+
 static std::unordered_map<std::string, std::function<long(cob::ValueMap&)>> mNativeCallHandlerMap {
     {"cvt2Gray", hanlder_convertToGray},
     {"drawRect", hanlder_drawRect},
     {"detectBlob", hanlder_detectBlob},
     {"configNet", hanlder_configNet},
     {"detectObject", hanlder_detectObject},
+    {"processCloak", hanlder_processCloak},
 };
 
 JNIEXPORT long JNICALL Java_org_opencv_samples_facedetect_DetectionBasedTracker_nativeCallCxx(JNIEnv*  env, jclass thiz, jstring jstrFunc, jstring jstrParam)
