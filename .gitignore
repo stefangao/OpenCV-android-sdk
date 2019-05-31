@@ -4,3 +4,4 @@ samples/.gradle/**
 samples/.idea/**
 sdk/build/**
 samples/face-detection/res/raw/yolov3_weights
+samples/face-detection/res/raw/colorization_release_v2_caffemodel

@@ -9,11 +9,22 @@
         android:largeHeap="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="ObDetectActivity"
+        <activity android:name="ColorizationActivity"
                   android:label="@string/app_name"
                   android:screenOrientation="landscape"
                   android:theme="@style/AppTheme.NoActionBar"
                   android:configChanges="keyboardHidden|orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="InvisibleCloakActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="keyboardHidden|orientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
